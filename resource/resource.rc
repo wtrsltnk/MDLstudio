@@ -1,0 +1,265 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MENU MENU DISCARDABLE 
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "&Open",                       IDM_FILE_OPEN
+        MENUITEM "Save",                        IDM_FILE_SAVE
+        MENUITEM "Save as...",                  IDM_FILE_SAVEAS
+        MENUITEM "&Close",                      IDM_FILE_SLUITEN
+        MENUITEM SEPARATOR
+        MENUITEM "&Browse",                     IDM_FILE_BROWSE
+        MENUITEM SEPARATOR
+        MENUITEM "&Exit",                       IDM_FILE_AFSLUITEN
+    END
+    POPUP "&View"
+    BEGIN
+        MENUITEM "&Center",                     IDM_VIEW_CENTER
+        MENUITEM "V_model",                     IDM_VIEW_VMODEL
+        MENUITEM SEPARATOR
+        MENUITEM "&Show polycount",             IDM_VIEW_SHOWPOLYS
+        MENUITEM "Show FPS",                    IDM_VIEW_SHOWFPS
+        MENUITEM SEPARATOR
+        MENUITEM "&Bones",                      IDM_VIEW_BONES
+        MENUITEM "Hitboxes",                    IDM_VIEW_HITBOXES
+        MENUITEM "Atachments",                  IDM_VIEW_ATACHMENTS
+        MENUITEM "Grid",                        IDM_VIEW_GRID
+        MENUITEM SEPARATOR
+        MENUITEM "Left",                        IDM_VIEW_LEFT
+        MENUITEM "Right",                       IDM_VIEW_RIGHT
+        MENUITEM "Top",                         IDM_VIEW_TOP
+        MENUITEM "Bottom",                      IDM_VIEW_BOTTOM
+        MENUITEM "Front",                       IDM_VIEW_FRONT
+        MENUITEM "Back",                        IDM_VIEW_BACK
+        MENUITEM "Perspective",                 IDM_VIEW_PERSPECTIVE
+    END
+    POPUP "&Settings"
+    BEGIN
+        MENUITEM "&Light color",                IDM_SETTINGS_LIGHTCOLOR
+        MENUITEM "&Background color",           IDM_SETTINGS_BGCOLOR
+    END
+    POPUP "&Rendermodes"
+    BEGIN
+        MENUITEM "&Vertex",                     IDM_RENDERMODES_VERTEX
+        MENUITEM "&Wireframe",                  IDM_RENDERMODES_WIREFRAME
+        MENUITEM "&Flat shaded",                IDM_RENDERMODES_FLAT
+        MENUITEM "&Smooth shaded",              IDM_RENDERMODES_SMOOTH
+        MENUITEM "&Textured",                   IDM_RENDERMODES_TEXTURED
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&Info",                       IDM_HELP_INFO
+    END
+END
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_ENERGY              ICON    DISCARDABLE     "energy.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_INFO DIALOGEX 0, 0, 186, 47
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+EXSTYLE WS_EX_TOOLWINDOW
+CAPTION "MDL Studio"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    LTEXT           "MDL Studio\nBy Wouter Saaltink",IDC_ABOUT,7,7,172,33
+END
+
+IDD_BROWSE DIALOGEX 0, 0, 128, 73
+STYLE WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+EXSTYLE WS_EX_TOOLWINDOW
+CAPTION "Browse for model files..."
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+END
+
+IDD_MATERIAL DIALOG DISCARDABLE  0, 0, 261, 90
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Material options"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,204,7,50,14,BS_FLAT
+    PUSHBUTTON      "Cancel",IDCANCEL,204,24,50,14,BS_FLAT
+    LTEXT           "Name:",IDC_MAT_NAMELBL,7,7,70,12
+    LTEXT           "name",IDC_MAT_NAME,7,20,100,12,SS_SUNKEN
+    LTEXT           "Width x Height",IDC_MAT_WHLBL,7,37,80,12
+    LTEXT           "Width",IDC_MAT_WIDTH,7,50,45,12,SS_SUNKEN
+    CTEXT           "x",IDC_MAT_X,54,50,8,12
+    LTEXT           "Height",IDC_MAT_HEIGHT,64,50,45,12,SS_SUNKEN
+    PUSHBUTTON      "Export",IDC_MAT_EXPORT,117,67,35,10,BS_FLAT
+    PUSHBUTTON      "Import",IDC_MAT_IMPORT,156,67,35,10,BS_FLAT
+    GROUPBOX        "Flags",IDC_MAT_FLAGS,118,7,73,57
+    CONTROL         "Chrome",IDC_MAT_CHROME,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,126,20,60,8
+    CONTROL         "Additive",IDC_MAT_ADDITIVE,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,126,34,60,8
+    CONTROL         "Transparant",IDC_MAT_TRANSPARANT,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,126,48,60,8
+END
+
+IDD_SEQUENCE DIALOGEX 0, 0, 290, 178
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Sequence options"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "Save",IDOK,233,7,50,14,BS_FLAT
+    PUSHBUTTON      "Cancel",IDCANCEL,233,24,50,14,BS_FLAT
+    LTEXT           "Name",IDC_SEQ_NAMELBL,7,7,70,10
+    LTEXT           "Name",IDC_SEQ_NAME,7,20,100,12,SS_SUNKEN
+    LTEXT           "Frames per Second:",IDC_SEQ_FPSLBL,7,39,65,10
+    EDITTEXT        IDC_SEQ_FPS,7,50,100,12,ES_RIGHT | ES_AUTOHSCROLL | NOT 
+                    WS_BORDER,WS_EX_STATICEDGE
+    LTEXT           "Events:",IDC_SEQ_EVENTSLBL,7,68,50,10
+    LISTBOX         IDC_SEQ_EVENTS,7,80,100,69,LBS_SORT | 
+                    LBS_NOINTEGRALHEIGHT | NOT WS_BORDER | WS_VSCROLL | 
+                    WS_TABSTOP,WS_EX_STATICEDGE
+    LTEXT           "Aantal Frames:",IDC_STATIC,111,38,47,10
+    RTEXT           "#",IDC_SEQ_FRAMES,111,50,48,12,SS_SUNKEN
+    GROUPBOX        "Event options",IDC_SEQ_EVENTSOPT,111,64,162,86
+    LTEXT           "Frame number:",IDC_SEQ_FRAMESNRLBL,120,77,60,10
+    LTEXT           "Event code:",IDC_SEQ_EVENTCODELBL,120,91,60,10
+    EDITTEXT        IDC_SEQ_EVENTFRAME,190,76,40,12,ES_AUTOHSCROLL | NOT 
+                    WS_BORDER,WS_EX_STATICEDGE
+    LTEXT           "Static",IDC_SEQ_EVENT,190,90,40,12,SS_SUNKEN
+    LTEXT           "Option:",IDC_SEQ_OPTIONLBL,120,105,60,10
+    EDITTEXT        IDC_SEQ_EVENTOPT,120,118,147,13,ES_AUTOHSCROLL | NOT 
+                    WS_BORDER,WS_EX_STATICEDGE
+    PUSHBUTTON      "Save",IDC_SEQ_EVENTSAVE,224,135,43,10,BS_FLAT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_INFO, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 40
+    END
+
+    IDD_BROWSE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 121
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 66
+    END
+
+    IDD_MATERIAL, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 254
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 83
+    END
+
+    IDD_SEQUENCE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 283
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 171
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_EXPLORER            BITMAP  DISCARDABLE     "explorer.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Cursor
+//
+
+IDC_HAND                CURSOR  DISCARDABLE     "hand.cur"
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

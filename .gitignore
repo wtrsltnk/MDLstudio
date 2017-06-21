@@ -1,0 +1,14 @@
+**/bin
+**/lib
+**/Debug
+**/Release
+**/*.ncb
+**/*.plg
+**/*.opt
+**/*.user
+**/*.exe
+**/*.dll
+**/*.aps
+**/*.zip
+**/*.rar
+**/Thumbs.db

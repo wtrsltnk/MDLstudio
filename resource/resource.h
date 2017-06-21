@@ -1,0 +1,119 @@
+//{{NO_DEPENDENCIES}}
+// Microsoft Developer Studio generated include file.
+// Used by resource.rc
+//
+#define ID_PANEL                        0
+#define ID_STARTSTOP                    1
+#define ID_RENDER                       1
+#define ID_SPEED                        2
+#define ID_FRAMES                       3
+#define ID_3DVIEW                       4
+#define ID_HIDE                         5
+#define ID_LBLC                         6
+#define ID_CONTROLLER                   7
+#define ID_STATUS                       8
+#define IDR_MENU                        101
+#define IDI_ENERGY                      103
+#define IDD_INFO                        104
+#define IDB_EXPLORER                    105
+#define IDD_BROWSE                      106
+#define IDD_MATERIAL                    107
+#define IDC_HAND                        108
+#define IDD_SEQUENCE                    109
+#define IDC_ABOUT                       1000
+#define ID_CLOSE                        1001
+#define IDC_MAT_NAMELBL                 1002
+#define IDC_MAT_NAME                    1003
+#define IDC_MAT_WHLBL                   1004
+#define IDC_MAT_WIDTH                   1005
+#define IDC_MAT_X                       1006
+#define IDC_MAT_HEIGHT                  1007
+#define IDC_MAT_EXPORT                  1008
+#define IDC_MAT_IMPORT                  1009
+#define IDC_MAT_FLAGS                   1010
+#define IDC_MAT_CHROME                  1011
+#define IDC_MAT_ADDITIVE                1012
+#define IDC_MAT_TRANSPARANT             1013
+#define IDC_SEQ_NAMELBL                 1014
+#define IDC_SEQ_NAME                    1015
+#define IDC_SEQ_FPSLBL                  1016
+#define IDC_SEQ_FPS                     1017
+#define IDC_SEQ_EVENTSLBL               1018
+#define IDC_SEQ_EVENTS                  1019
+#define IDC_SEQ_FRAMES                  1020
+#define IDC_SEQ_EVENTSOPT               1021
+#define IDC_SEQ_EVENTFRAME              1022
+#define IDC_SEQ_EVENTOPT                1023
+#define IDC_SEQ_FRAMESNRLBL             1024
+#define IDC_SEQ_EVENTCODELBL            1025
+#define IDC_SEQ_OPTIONLBL               1026
+#define IDC_SEQ_EVENT                   1027
+#define IDC_SEQ_EVENTSAVE               1028
+#define IDM_FILE_OPEN                   40001
+#define IDM_BESTAND_OPEN                40001
+#define IDM_RENDERMODES_VERTEX          40002
+#define IDM_RENDERMODES_WIREFRAME       40003
+#define IDM_RENDERMODES_FLAT            40004
+#define IDM_RENDERMODES_SMOOTH          40005
+#define IDM_RENDERMODES_TEXTURED        40006
+#define IDM_INSTELLINGEN_BONES          40007
+#define IDM_SETTINGS_BONES              40007
+#define IDM_VIEW_BONES                  40007
+#define IDM_INSTELLINGEN_HITBOXES       40008
+#define IDM_SETTINGS_HITBOXES           40008
+#define IDM_VIEW_HITBOXES               40008
+#define IDM_INSTELLINGEN_ATACHMENTS     40009
+#define IDM_SETTINGS_ATACHMENTS         40009
+#define IDM_VIEW_ATACHMENTS             40009
+#define IDM_INSTELLINGEN_LIGHTCOLOR     40010
+#define IDM_SETTINGS_LIGHTCOLOR         40010
+#define IDM_INSTELLINGEN_BGCOLOR        40011
+#define IDM_SETTINGS_BGCOLOR            40011
+#define IDM_BESTAND_SLUITEN             40012
+#define IDM_FILE_SLUITEN                40012
+#define IDM_BESTAND_AFSLUITEN           40013
+#define IDM_FILE_AFSLUITEN              40013
+#define IDM_MATERIAL_ZOOM_50            40014
+#define IDM_MATERIAL_ZOOM_100           40015
+#define IDM_MATERIAL_ZOOM_150           40016
+#define IDM_MATERIAL_ZOOM_200           40017
+#define IDM_MATERIAL_ZOOM_300           40018
+#define IDM_HELP_INFO                   40019
+#define IDM_BESTAND_EXPORT_REFERENCES   40020
+#define IDM_BESTAND_EXPORT_SEQUENCES    40021
+#define IDM_BESTAND_EXPORT_TEXTURES     40022
+#define IDM_BESTAND_EXPORT_QC           40023
+#define IDM_BESTAND_BROWSE              40024
+#define IDM_FILE_BROWSE                 40024
+#define IDM_VIEW_CENTER                 40025
+#define IDM_VIEW_VMODEL                 40026
+#define IDM_VIEW_SHOWINFO               40027
+#define IDM_VIEW_SHOWPOLYS              40027
+#define IDM_VIEW_SHOWFPS                40028
+#define IDM_VIEW_LEFT                   40029
+#define IDM_VIEW_RIGHT                  40030
+#define IDM_VIEW_TOP                    40031
+#define IDM_VIEW_BOTTOM                 40032
+#define IDM_VIEW_FRONT                  40033
+#define IDM_VIEW_BACK                   40034
+#define IDM_VIEW_PERSPECTIVE            40035
+#define IDM_VIEW_GRID                   40036
+#define IDM_FILE_SAVE                   40037
+#define IDM_FILE_SAVEAS                 40038
+#define IDM_REF_EXPORT                  50001
+#define IDM_SEQ_EXPORT                  50002
+#define IDM_SEQ_INFO                    50003
+#define IDM_MAT_EXPORT                  50004
+#define IDM_MAT_IMPORT                  50005
+#define IDM_MAT_INFO                    50006
+
+// Next default values for new objects
+// 
+#ifdef APSTUDIO_INVOKED
+#ifndef APSTUDIO_READONLY_SYMBOLS
+#define _APS_NEXT_RESOURCE_VALUE        110
+#define _APS_NEXT_COMMAND_VALUE         40039
+#define _APS_NEXT_CONTROL_VALUE         1029
+#define _APS_NEXT_SYMED_VALUE           101
+#endif
+#endif
