@@ -8,7 +8,6 @@ add_executable(MDLstudio WIN32
     hlsdk/activity.h
     hlsdk/cmdlib.c
     hlsdk/cmdlib.h
-    hlsdk/files.txt
 #    hlsdk/mathlib.c
 #    hlsdk/mathlib.h
     hlsdk/studio.h
