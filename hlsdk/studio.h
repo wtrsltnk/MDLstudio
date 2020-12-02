@@ -19,6 +19,10 @@
 #ifndef _STUDIO_H_
 #define _STUDIO_H_
 
+#include "mathlib.h"
+
+typedef unsigned char 		byte;
+
 /*
 ==============================================================================
 

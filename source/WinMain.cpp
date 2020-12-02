@@ -7,7 +7,7 @@ int APIENTRY WinMain(HINSTANCE hInstance,
                      LPSTR     lpCmdLine,
                      int       nCmdShow)
 {
-	CMainFrame app;
+    CMainFrame app(lpCmdLine);
 
 	if (!app.Create())
 		return 0;

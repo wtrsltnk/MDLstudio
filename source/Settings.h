@@ -39,9 +39,13 @@ typedef struct
 
 extern Settings settings;
 
-void InitSettings (void);
-int LoadSettings (char *filename);
-int SaveSettings (char *filename);
+void InitSettings ();
+
+int LoadSettings (
+    const char *filename);
+
+int SaveSettings (
+    const char *filename);
 
 
 #endif // INCLUDED_VIEWERSETTINGS

@@ -44,12 +44,17 @@ void InitSettings (void)
 
 
 
-int LoadSettings (char *filename)
+int LoadSettings (
+    const char *filename)
 {
-	FILE *file = fopen (filename, "rb");
+    FILE *file;
 
-	if (!file)
-		return 0;
+    errno_t err = fopen_s(&file, filename, "rb");
+
+    if (err != 0)
+    {
+        return 0;
+    }
 
 	fread (&settings, sizeof (Settings), 1, file);
 	fclose (file);
@@ -59,12 +64,17 @@ int LoadSettings (char *filename)
 
 
 
-int SaveSettings (char *filename)
+int SaveSettings (
+    const char *filename)
 {
-	FILE *file = fopen (filename, "wb");
+    FILE *file;
 
-	if (!file)
-		return 0;
+    errno_t err = fopen_s(&file, filename, "wb");
+
+    if (err != 0)
+    {
+        return 0;
+    }
 
 	fwrite (&settings, sizeof (Settings), 1, file);
 	fclose (file);

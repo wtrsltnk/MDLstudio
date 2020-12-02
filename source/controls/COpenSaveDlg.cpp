@@ -48,7 +48,7 @@ char *COpenSaveDlg::open( char *title, char *szFilter, char *szDefExt )
 			if ( ofn.lpstrFile[i] == '\\' )
 				result[i] = '/';
 		}
-        result[strlen( ofn.lpstrFile )]='\0';
+		result[i]='\0';
 		return result;
 	}
 	//als het openen van de dialoog niet gelukt is, geeft een lege string terug
@@ -85,7 +85,7 @@ char *COpenSaveDlg::save( char *title, char *szFilter, char *szDefExt )
 			if ( ofn.lpstrFile[i] == '\\' )
 				result[i] = '/';
 		}
-        result[strlen( ofn.lpstrFile )]='\0';
+		result[i]='\0';
 		return result;
 	}
 	//als het openen van de dialoog niet gelukt is, geeft een lege string terug
