@@ -184,16 +184,22 @@ std::string CFolderView::initPath(
     strPathName = getItemPath(pnmtv->itemNew.hItem);
 
     if (hItem == hParentItem)
+    {
         return getItemPath(getSelection());
+    }
 
     clearChilderen(hItem);
     strFileSpec = strPathName;
     if (strFileSpec[strlen(strFileSpec.c_str()) - 1] != '\\')
+    {
         strFileSpec += '\\';
+    }
     strFileSpec += "*.*";
 
     if ((hFind = FindFirstFile((LPCTSTR)strFileSpec.c_str(), &fd)) == INVALID_HANDLE_VALUE)
+    {
         return getItemPath(getSelection());
+    }
 
     do
     {
@@ -202,14 +208,14 @@ std::string CFolderView::initPath(
             strFileName = (LPCTSTR)&fd.cFileName;
             if ((strFileName != ".") && (strFileName != "..") && (fd.dwFileAttributes != 22))
             {
-                HTREEITEM hChild =
-                    addItem((LPCTSTR)&fd.cFileName,
-                            hItem, 1, 2);
+                HTREEITEM hChild = addItem((LPCTSTR)&fd.cFileName, hItem, 1, 2);
 
                 std::string strNewPathName;
                 strNewPathName = strPathName;
-                if (strNewPathName[strlen(strFileSpec.c_str())] != '\\')
+                if (strNewPathName[strNewPathName.size() - 1] != '\\')
+                {
                     strNewPathName += '\\';
+                }
 
                 strNewPathName += (LPCTSTR)&fd.cFileName;
                 setButtonState(hChild, strNewPathName);
@@ -219,6 +225,7 @@ std::string CFolderView::initPath(
     } while (FindNextFile(hFind, &fd));
 
     FindClose(hFind);
+
     return getItemPath(getSelection());
 }
 
@@ -252,22 +259,30 @@ bool CFolderView::hasSubdirectory(
 
     strFileSpec = strPathName;
     if (strFileSpec[strlen(strFileSpec.c_str())] != '\\')
+    {
         strFileSpec += '\\';
+    }
     strFileSpec += "*.*";
 
-    if ((hFind = FindFirstFile((LPCTSTR)strFileSpec.c_str(), &fd)) != INVALID_HANDLE_VALUE)
+    if ((hFind = FindFirstFile((LPCTSTR)strFileSpec.c_str(), &fd)) == INVALID_HANDLE_VALUE)
     {
-        do
-        {
-            if (fd.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY)
-            {
-                strFileName = (LPCTSTR)&fd.cFileName;
-                if ((strFileName != ".") && (strFileName != ".."))
-                    bResult = true;
-            }
-        } while (::FindNextFile(hFind, &fd) && !bResult);
-        FindClose(hFind);
+        return false;
     }
+
+    do
+    {
+        if (fd.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY)
+        {
+            strFileName = (LPCTSTR)&fd.cFileName;
+            if ((strFileName != ".") && (strFileName != ".."))
+            {
+                bResult = true;
+            }
+        }
+    } while (::FindNextFile(hFind, &fd) && !bResult);
+
+    FindClose(hFind);
+
     return bResult;
 }
 

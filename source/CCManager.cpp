@@ -315,8 +315,8 @@ void CCManager::ItemSelected(
 {
     char buffer[255];
 
-    string seltext;
-    string partext;
+    std::string seltext;
+    std::string partext;
 
     seltext = m_pPanel->getItemText(m_pPanel->getSelection());
     partext = m_pPanel->getItemText(m_pPanel->getParent(m_pPanel->getSelection()));
@@ -459,7 +459,8 @@ void CCManager::ItemSelected(
     m_nView = VIEW_MODEL;
 }
 
-int CCManager::getIndex(string str)
+int CCManager::getIndex(
+    const std::string &str)
 {
     char *result;
     char *temp;
@@ -574,12 +575,12 @@ int CCManager::getTreeSelectedType()
     }
 }
 
-string CCManager::getTreeSelectedText()
+std::string CCManager::getTreeSelectedText()
 {
     return m_pPanel->getItemText(m_pPanel->getSelection());
 }
 
-string CCManager::getTreeParentText()
+std::string CCManager::getTreeParentText()
 {
     return m_pPanel->getItemText(m_pPanel->getParent(m_pPanel->getSelection()));
 }

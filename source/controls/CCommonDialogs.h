@@ -2,9 +2,7 @@
 #define COPENSAVEDLG_H
 
 #include <shlobj.h>
-#include <string>
 #include <windows.h>
-using namespace std;
 
 class CCommonDialogs
 {

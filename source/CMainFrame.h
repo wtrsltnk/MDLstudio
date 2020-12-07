@@ -25,7 +25,7 @@ private:
     static StudioModel m_Model;
 
     char m_pAppPath[MAX_PATH];
-    char m_pSettings[MAX_PATH];
+    std::string m_pSettings;
     char m_pFileName[MAX_PATH];
     LPTSTR lpCmdLine;
     LPTSTR lpParameters;

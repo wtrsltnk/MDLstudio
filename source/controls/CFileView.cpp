@@ -104,12 +104,16 @@ void CFileView::initFiles(
     addColumn("File", 1, 300);
 
     strFileSpec = strPathName;
-    if (strFileSpec[strlen(strFileSpec.c_str()) - 1] != '\\')
+    if (!strFileSpec.empty() && strFileSpec[strFileSpec.size() - 1] != '\\')
+    {
         strFileSpec += '\\';
+    }
     strFileSpec += "*.mdl";
 
     if ((hFind = FindFirstFile((LPCTSTR)strFileSpec.c_str(), &fd)) == INVALID_HANDLE_VALUE)
+    {
         return;
+    }
 
     do
     {
@@ -122,8 +126,10 @@ void CFileView::initFiles(
 
                 std::string strNewPathName;
                 strNewPathName = strPathName;
-                if (strNewPathName[strlen(strFileSpec.c_str())] != '\\')
+                if (!strNewPathName.empty() && strNewPathName[strNewPathName.size() - 1] != '\\')
+                {
                     strNewPathName += '\\';
+                }
 
                 strNewPathName += (LPCTSTR)&fd.cFileName;
             }

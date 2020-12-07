@@ -72,10 +72,10 @@ public:
     void centerview(void);
     void vmodelview(void);
 
-    int getIndex(string str);
+    int getIndex(const std::string &str);
     int getTreeSelectedType();
-    string getTreeSelectedText();
-    string getTreeParentText();
+    std::string getTreeSelectedText();
+    std::string getTreeParentText();
     void statusPan(void);
 };
 #endif

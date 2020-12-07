@@ -1,5 +1,8 @@
 #include "CMainFrame.h"
 
+#include <filesystem>
+#include <stdlib.h>
+
 StudioModel CMainFrame::m_Model;
 /////////////////////////////////////
 // Constructors / Destructors      //
@@ -29,9 +32,18 @@ CMainFrame::CMainFrame(
     this->loaded = false;
     this->browsed = false;
 
-    GetAppPath(GetCommandLine(), m_pAppPath);
-    strcpy_s(m_pSettings, MAX_PATH, m_pAppPath);
-    strcat_s(m_pSettings, MAX_PATH, "\\settings.set");
+    char *userprofile_path;
+    size_t len;
+    errno_t err = _dupenv_s(&userprofile_path, &len, "USERPROFILE");
+
+    if (!err)
+    {
+        std::filesystem::path userprofile(userprofile_path);
+
+        m_pSettings = (userprofile / std::filesystem::path("settings.set")).string();
+
+        free(userprofile_path);
+    }
 }
 
 CMainFrame::~CMainFrame()
@@ -57,7 +69,9 @@ LRESULT CMainFrame::MsgProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
             m_pInfo = new CInfoDlg(m_hInstance, m_hWnd);
             m_pMaterial = new CMaterialDlg(m_hInstance, m_hWnd);
             m_pSequence = new CSequenceDlg(m_hInstance, m_hWnd);
-            if (LoadSettings(m_pSettings) == 0)
+
+            auto settingsLoaded = LoadSettings(m_pSettings.c_str());
+            if (settingsLoaded == 0)
             {
                 InitSettings();
                 GetWindowPlacement(m_hWnd, &settings.me);
@@ -115,19 +129,34 @@ LRESULT CMainFrame::MsgProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
                 setTitle("");
             }
             CreateMenus();
+
+            if (settingsLoaded)
+            {
+                settings.me.length = sizeof(WINDOWPLACEMENT);
+                SetWindowPlacement(m_hWnd, &(settings.me));
+            }
             break;
         }
         case WM_CLOSE:
         {
-            GetWindowPlacement(m_hWnd, &settings.me);
-            SaveSettings(m_pSettings);
+            settings.me.length = sizeof(WINDOWPLACEMENT);
+            GetWindowPlacement(m_hWnd, &(settings.me));
+
+            SaveSettings(m_pSettings.c_str());
             break;
         }
         case WM_SIZE:
         {
             m_pControls->resize(wParam, lParam);
 
-            GetWindowPlacement(m_hWnd, &settings.me);
+            settings.me.length = sizeof(WINDOWPLACEMENT);
+            GetWindowPlacement(m_hWnd, &(settings.me));
+            break;
+        }
+        case WM_MOVE:
+        {
+            settings.me.length = sizeof(WINDOWPLACEMENT);
+            GetWindowPlacement(m_hWnd, &(settings.me));
             break;
         }
         case WM_PAINT:
@@ -558,6 +587,29 @@ void CMainFrame::GetAppPath(
         for (size_t i = 1; i < cmdlen; i++)
         {
             if (cmdline[i] == '\"')
+            {
+                size_t j = 0;
+                for (; j < i; j++)
+                {
+                    dest[j] = cmdline[j + 1];
+                }
+
+                for (size_t k = j; k > 0; k--)
+                {
+                    if (dest[k] == '\\')
+                    {
+                        dest[k] = '\0';
+                        return;
+                    }
+                }
+            }
+        }
+    }
+    else
+    {
+        for (size_t i = 1; i < cmdlen; i++)
+        {
+            if (cmdline[i] == '\0')
             {
                 size_t j = 0;
                 for (; j < i; j++)

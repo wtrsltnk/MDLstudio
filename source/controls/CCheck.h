@@ -5,7 +5,6 @@
 #include <commctrl.h>
 #include <string>
 #include "CControl.h"
-using namespace std;
 
 class CCheck: public CControl
 {

@@ -38,7 +38,7 @@ bool StudioModel::BMP_ExportTexture(
 ////////////////////////////////////////////////////////////////////
 // Code by Otis is (c)1999 Solutions Design, http://www.sd.nl
 // Code by Ascent is (c)1999 Greg Dunn.
-// Code by Dark Yoda is (c)1999 Volker Schönefeld.
+// Code by Dark Yoda is (c)1999 Volker Sch?nefeld.
 // All rights reserved.
 ////////////////////////////////////////////////////////////////////
 // Purpose: does the actual saving of the bitmap data
@@ -183,15 +183,15 @@ bool StudioModel::SMD_ExportSequence(
 
             //set filename
             /*
-			if (pseqdesc->numblends == 1)
-			{
-				sprintf(smdfilename, "%s%s.smd", DestPath, pseqdesc->label);
-			}
-			else
-			{
-				sprintf(smdfilename, "%s%s_blend%i.smd", DestPath, pseqdesc->label, ii+1);
-			}
-			// open 
+            if (pseqdesc->numblends == 1)
+            {
+                sprintf(smdfilename, "%s%s.smd", DestPath, pseqdesc->label);
+            }
+            else
+            {
+                sprintf(smdfilename, "%s%s_blend%i.smd", DestPath, pseqdesc->label, ii+1);
+            }
+            // open
 */
             smdfile = fopen(filename, "w");
             if (!smdfile)
@@ -228,8 +228,8 @@ bool StudioModel::SMD_ExportSequence(
 /*
 ==============================================================
 
-	Half-Life MDL Decompiler
-	2002, Kratisto. Based on code from HL SDK
+    Half-Life MDL Decompiler
+    2002, Kratisto. Based on code from HL SDK
 
 ==============================================================
 */
@@ -353,24 +353,24 @@ void StudioModel::SMD_WriteFrame(
 
         /*
 
-		vec4_t				q, q1, q2;
+        vec4_t				q, q1, q2;
 
-		if (!VectorCompare( angle1, angle2 ))
-		{
-			AngleQuaternion( angle1, q1 );
-			AngleQuaternion( angle2, q2 );
-			QuaternionSlerp( q1, q2, s, q );
-		}
-		else
-		{
-			AngleQuaternion( angle1, q );
-		}
+        if (!VectorCompare( angle1, angle2 ))
+        {
+            AngleQuaternion( angle1, q1 );
+            AngleQuaternion( angle2, q2 );
+            QuaternionSlerp( q1, q2, s, q );
+        }
+        else
+        {
+            AngleQuaternion( angle1, q );
+        }
 
-		Eulers[0] = angle1[0];
-		Eulers[1] = angle1[1];
-		Eulers[2] = angle1[2];
+        Eulers[0] = angle1[0];
+        Eulers[1] = angle1[1];
+        Eulers[2] = angle1[2];
 
-		*/
+        */
 
         VectorCopy(angle1, Eulers);
 
@@ -439,8 +439,8 @@ void StudioModel::SMD_WriteNodes(
 /*
 ==============================================================
 
-	Half-Life MDL Decompiler
-	2002, Kratisto. Based on code from HL SDK
+    Half-Life MDL Decompiler
+    2002, Kratisto. Based on code from HL SDK
 
 ==============================================================
 */
