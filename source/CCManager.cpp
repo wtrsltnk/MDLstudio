@@ -60,7 +60,7 @@ CCManager::CCManager(HINSTANCE hInstance, HWND hParent)
     m_pStatus->addOneItem("GUI initialized...");
 }
 
-CCManager::~CCManager(void)
+CCManager::~CCManager()
 {
 }
 
@@ -68,7 +68,7 @@ CCManager::~CCManager(void)
 // Memberfuncties                  //
 /////////////////////////////////////
 
-void CCManager::drawOpenGL(void)
+void CCManager::drawOpenGL()
 {
     switch (m_nView)
     {
@@ -84,7 +84,9 @@ void CCManager::drawOpenGL(void)
     }
 }
 
-void CCManager::resize(WPARAM wParam, LPARAM lParam)
+void CCManager::resize(
+    WPARAM wParam,
+    LPARAM lParam)
 {
     m_nWidth = LOWORD(lParam);
     m_nHeight = HIWORD(lParam);
@@ -121,7 +123,7 @@ void CCManager::resize(WPARAM wParam, LPARAM lParam)
     m_pSpeed->hide(!settings.hidepanel);
 }
 
-void CCManager::togglePanel(void)
+void CCManager::togglePanel()
 {
     settings.hidepanel = !settings.hidepanel;
     if (settings.hidepanel)
@@ -148,7 +150,7 @@ void CCManager::togglePanel(void)
     m_pSpeed->hide(!settings.hidepanel);
 }
 
-bool CCManager::toggleAnimatie(void)
+bool CCManager::toggleAnimatie()
 {
     settings.animate = !settings.animate;
     if (settings.animate)
@@ -581,7 +583,8 @@ std::string CCManager::getTreeParentText()
     return m_pPanel->getItemText(m_pPanel->getParent(m_pPanel->getSelection()));
 }
 
-void CCManager::setView(int view)
+void CCManager::setView(
+    int view)
 {
     this->m_nView = view;
 }
@@ -613,6 +616,7 @@ void CCManager::statusPan()
 {
     char str[255];
 
-    sprintf(str, "PAN : %d", m_p3DView->getPan());
+    sprintf_s(str, 255, "PAN : %d", m_p3DView->getPan());
+
     m_pStatus->setItemText(str, 1);
 }

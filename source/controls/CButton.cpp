@@ -16,12 +16,6 @@ CButton::CButton(
 {
 }
 
-CButton::CButton(
-    HINSTANCE hInstance,
-    HWND hParent)
-    : CControl(
-          hInstance,
-          hParent)
 {
 }
 
@@ -47,8 +41,6 @@ void CButton::create(void)
         NULL);
 }
 
-void CButton::create(
-    DWORD ex_style)
 {
     m_hWnd = CreateWindowEx(
         ex_style,
@@ -66,9 +58,6 @@ void CButton::create(
         NULL);
 }
 
-void CButton::create(
-    DWORD ex_style,
-    DWORD styles)
 {
     m_hWnd = CreateWindowEx(
         ex_style,

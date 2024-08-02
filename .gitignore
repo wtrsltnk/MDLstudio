@@ -13,3 +13,6 @@
 **/*.rar
 **/Thumbs.db
 build/**
+*.user
+*.dll
+build/*

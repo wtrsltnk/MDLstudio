@@ -497,23 +497,23 @@ int CheckParm (char *check)
 
 
 
-///*
-//================
-//filelength
-//================
-//*/
-//int filelength (FILE *f)
-//{
-//	int		pos;
-//	int		end;
+/*
+================
+filelength
+================
+*/
+int filelength (FILE *f)
+{
+	int		pos;
+	int		end;
 
-//	pos = ftell (f);
-//	fseek (f, 0, SEEK_END);
-//	end = ftell (f);
-//	fseek (f, pos, SEEK_SET);
+	pos = ftell (f);
+	fseek (f, 0, SEEK_END);
+	end = ftell (f);
+	fseek (f, pos, SEEK_SET);
 
-//	return end;
-//}
+	return end;
+}
 
 
 FILE *SafeOpenWrite (char *filename)
