@@ -1,10 +1,9 @@
 #ifndef COPENGL_H
 #define COPENGL_H
 
+#include <glad/glad.h>
+
 #include <windows.h>
-#include <gl/gl.h>
-#include <gl/glu.h>
-#include <gl/glaux.h>
 
 #include "..\hlsdk\mathlib.h"
 #include "..\hlsdk\studio.h"

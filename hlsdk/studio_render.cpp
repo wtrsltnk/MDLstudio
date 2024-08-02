@@ -13,8 +13,7 @@
 
 #include <windows.h>
 
-#include <gl\gl.h>
-#include <gl\glu.h>
+#include <glad/glad.h>
 
 #pragma warning( disable : 4244 ) // double to float
 
@@ -271,10 +270,10 @@ mstudioanim_t * StudioModel::GetAnim( mstudioseqdesc_t *pseqdesc )
 
 	if (pseqdesc->seqgroup == 0)
 	{
-		return (mstudioanim_t *)((byte *)m_pstudiohdr + pseqgroup->data + pseqdesc->animindex);
-	}
+        return (mstudioanim_t *)((byte *)m_pstudiohdr + pseqgroup->cache + pseqdesc->animindex);
+    }
 
-	return (mstudioanim_t *)((byte *)m_panimhdr[pseqdesc->seqgroup] + pseqdesc->animindex);
+    return (mstudioanim_t *)((byte *)m_panimhdr[pseqdesc->seqgroup] + pseqdesc->animindex);
 }
 
 

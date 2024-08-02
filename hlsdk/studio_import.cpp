@@ -1,8 +1,7 @@
 
 #include <windows.h>
 
-#include <gl\gl.h>
-#include <gl\glu.h>
+#include <glad/glad.h>
 
 #pragma warning( disable : 4244 ) // double to float
 

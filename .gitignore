@@ -12,3 +12,4 @@
 **/*.zip
 **/*.rar
 **/Thumbs.db
+build/**

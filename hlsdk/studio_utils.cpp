@@ -16,8 +16,7 @@
 
 #include <windows.h>
 
-#include <gl\gl.h>
-#include <gl\glu.h>
+#include <glad/glad.h>
 
 #include "mathlib.h"
 //#include "..\..\engine\studio.h"

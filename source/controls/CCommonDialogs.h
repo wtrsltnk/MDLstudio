@@ -2,25 +2,25 @@
 #define COPENSAVEDLG_H
 
 #include <windows.h>
+
 #include <shlobj.h>
 #include <string>
-using namespace std;
 
 class CCommonDialogs
 {
-private:
-	HWND				m_hOwner;
-	HWND				m_hWnd;
-	HINSTANCE			m_hInstance;
-
 public:
-	CCommonDialogs( HINSTANCE, HWND );
-	~CCommonDialogs( void );
+    CCommonDialogs(HINSTANCE, HWND);
+    ~CCommonDialogs();
 
-	char *open( char *, char *, char * );
-	char *save( char *, char *, char * );
-	char *folder( char *title );
-	bool color( float color[3] );
+    std::string open(const char *, const char *, const char *);
+    std::string save(const char *, const char *, const char *);
+    std::string folder(const char *title);
+    bool color(float color[3]);
+
+private:
+    HWND m_hOwner;
+    HWND m_hWnd;
+    HINSTANCE m_hInstance;
 };
 
 #endif

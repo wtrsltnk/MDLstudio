@@ -36,6 +36,7 @@ add_executable(MDLstudio WIN32
     source/Settings.cpp
     source/Settings.h
     source/WinMain.cpp
+    source/glad.c
     source/controls/CButton.cpp
     source/controls/CButton.h
     source/controls/CCheck.cpp
@@ -58,8 +59,6 @@ add_executable(MDLstudio WIN32
     source/controls/CLabel.h
     source/controls/CList.cpp
     source/controls/CList.h
-    source/controls/COpenSaveDlg.cpp
-    source/controls/COpenSaveDlg.h
     source/controls/CReportView.cpp
     source/controls/CReportView.h
     source/controls/CSlider.cpp
@@ -97,3 +96,8 @@ target_compile_features(MDLstudio
 	PRIVATE cxx_nullptr
 	PRIVATE cxx_range_for
 	)
+
+target_include_directories(MDLstudio
+    PRIVATE source
+)
+

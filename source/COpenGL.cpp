@@ -176,7 +176,9 @@ void COpenGl::create()
     m_hRC = wglCreateContext( m_hDC );
     wglMakeCurrent( m_hDC, m_hRC );
 
-	initfont();
+    gladLoadGL();
+
+    initfont();
 
 	glEnable(GL_CULL_FACE);
 }
@@ -373,9 +375,9 @@ void COpenGl::drawtext( int x, int y, unsigned font, const char *format, ...)
 	glLoadIdentity();
     glPushMatrix();
 
-    gluOrtho2D( 0.0, (GLdouble) m_nWidth, 0.0, (GLdouble) m_nHeight );
+    glOrtho(0.0, (GLdouble) m_nWidth, 0.0, (GLdouble) m_nHeight, 1.0f, -1.0f);
 
-	glDisable (GL_TEXTURE_2D);
+    glDisable(GL_TEXTURE_2D);
     glMatrixMode( GL_MODELVIEW );
     glLoadIdentity();
 
@@ -561,6 +563,18 @@ void COpenGl::setupRenderMode( void )
 	}
 }
 
+void perspectiveGL(GLdouble fovY, GLdouble aspect, GLdouble zNear, GLdouble zFar)
+{
+    const GLdouble pi = 3.1415926535897932384626433832795;
+    GLdouble fW, fH;
+
+    //fH = tan( (fovY / 2) / 180 * pi ) * zNear;
+    fH = tan(fovY / 360 * pi) * zNear;
+    fW = fH * aspect;
+
+    glFrustum(-fW, fW, -fH, fH, zNear, zFar);
+}
+
 void COpenGl::setupViewMode( void )
 {
 	float ratio;
@@ -638,9 +652,9 @@ void COpenGl::setupViewMode( void )
 		
 
 	case VIEWMODE_PERSPECTIVE:
-		gluPerspective(45.0f,(GLfloat)m_nWidth/(GLfloat)m_nHeight,0.5f,300.0f);
-		glTranslatef( panx, pany ,panz );
-		glRotatef(rotx,1,0,0);
+        perspectiveGL(45.0f, (GLfloat) m_nWidth / (GLfloat) m_nHeight, 0.5f, 300.0f);
+        glTranslatef(panx, pany, panz);
+        glRotatef(rotx,1,0,0);
 		glRotatef(roty,0,1,0);
 		glRotatef(rotz,0,0,1);
 		glScalef( 0.1f, 0.1f, 0.1f );
