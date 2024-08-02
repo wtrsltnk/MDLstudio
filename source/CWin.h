@@ -16,8 +16,8 @@ protected:
  	DWORD m_dwCreationFlags;
 	DWORD m_dwCreationHeight;
 	DWORD m_dwCreationWidth;
-	TCHAR * m_strWindowTitle;
-	TCHAR * m_strAppVersion;
+    LPCSTR m_strWindowTitle;
+    LPCSTR m_strAppVersion;
 	HBRUSH m_hbrWindowColor;
 	HICON  m_hIcon;
 	HMENU  m_hMenu;

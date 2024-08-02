@@ -16,7 +16,8 @@ typedef unsigned char byte;
 class CMainFrame : public CWin
 {
 public:
-    CMainFrame();
+    CMainFrame(
+        LPSTR lpCmdLine);
     ~CMainFrame();
 
     LRESULT MsgProc(HWND, UINT, WPARAM, LPARAM);

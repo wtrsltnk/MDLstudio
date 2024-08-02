@@ -29,7 +29,7 @@ CButton::CButton(
 // Memberfuncties                  //
 /////////////////////////////////////
 
-void CButton::create(void)
+void CButton::create()
 {
     m_hWnd = CreateWindowEx(
         WS_EX_WINDOWEDGE,

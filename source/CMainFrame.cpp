@@ -1,11 +1,15 @@
 #include "CMainFrame.h"
 
+#include "Settings.h"
+#include <stdlib.h>
+
 StudioModel CMainFrame::m_Model;
 
 /////////////////////////////////////
 // Constructors / Destructors      //
 /////////////////////////////////////
-CMainFrame::CMainFrame()
+CMainFrame::CMainFrame(
+    LPSTR lpCmdLine)
 {
     memset(m_pAppPath, 0, MAX_PATH);
     memset(m_pSettings, 0, MAX_PATH);
@@ -37,13 +41,21 @@ CMainFrame::CMainFrame()
 
 CMainFrame::~CMainFrame()
 {
+    if (this->lpParameters != NULL)
+    {
+        delete[] this->lpParameters;
+    }
 }
 
 /////////////////////////////////////
 // Memberfuncties                  //
 /////////////////////////////////////
 
-LRESULT CMainFrame::MsgProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
+LRESULT CMainFrame::MsgProc(
+    HWND hWnd,
+    UINT uMsg,
+    WPARAM wParam,
+    LPARAM lParam)
 {
     RECT pl;
     std::string result;
@@ -264,7 +276,6 @@ LRESULT CMainFrame::MsgProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 
                     SetTimer(m_hWnd, ID_RENDER, TIMER_INTERVAL, (TIMERPROC)NULL);
                     break;
-
                 case IDM_RENDERMODES_VERTEX:
                 case IDM_RENDERMODES_WIREFRAME:
                 case IDM_RENDERMODES_FLAT:
